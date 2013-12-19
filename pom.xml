@@ -17,6 +17,7 @@
         <sl4j.version>1.7.2</sl4j.version>
         <junit.version>4.11</junit.version>
         <hsqldb.version>2.2.9</hsqldb.version>
+        <mysql.version>5.1.27</mysql.version>
     </properties>
 
     <parent>
@@ -83,9 +84,9 @@
             <version>${sl4j.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.hsqldb</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>${hsqldb.version}</version>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -108,12 +109,14 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>${spring.framework.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

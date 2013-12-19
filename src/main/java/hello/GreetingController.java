@@ -1,18 +1,19 @@
 package hello;
 
 import java.util.concurrent.atomic.AtomicLong;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
 import jpa.config.java.Account;
-import jpa.config.java.JpaConfig;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-@ContextConfiguration(classes = JpaConfig.class)
 @Controller
 public class GreetingController {
 
@@ -22,9 +23,10 @@ public class GreetingController {
     @PersistenceContext
     private EntityManager entityManager;
 
+    @Transactional
     @RequestMapping("/greeting")
-    public @ResponseBody
-    Greeting greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name) {
+    @ResponseBody
+    public Greeting greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name) {
 
         //Jedis jedis = new Jedis("localhost");
         //String value = jedis.get("foo");
