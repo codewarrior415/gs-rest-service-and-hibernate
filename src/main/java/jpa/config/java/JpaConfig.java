@@ -7,7 +7,8 @@ import org.hibernate.ejb.HibernatePersistence;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactoryBean;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -40,14 +41,27 @@ public class JpaConfig {
 
 	@Bean
 	public DataSource datasource() {
-		EmbeddedDatabaseFactoryBean bean = new EmbeddedDatabaseFactoryBean();
-		ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
-		databasePopulator.addScript(new ClassPathResource("hibernate/config/java/schema.sql"));
-		bean.setDatabasePopulator(databasePopulator);
-		bean.afterPropertiesSet(); // necessary because
-									// EmbeddedDatabaseFactoryBean is a
-									// FactoryBean
-		return bean.getObject();
+		DriverManagerDataSource datasource = new DriverManagerDataSource();
+		
+		datasource.setDriverClassName("com.mysql.jdbc.Driver");
+		datasource.setUrl("jdbc:mysql://localhost/test");
+		datasource.setUsername("root");
+		datasource.setPassword("");
+		
+		return datasource;
 	}
+	
+	@Bean
+	public DataSourceInitializer dataSourceInitializer() {
+		DataSourceInitializer dsi = new DataSourceInitializer();
+		
+		dsi.setDataSource(datasource());
+		
+		ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
+		databasePopulator.addScript(new ClassPathResource("jpa/config/java/schema.sql"));
 
+		dsi.setDatabasePopulator(databasePopulator);
+		
+		return dsi;
+	}
 }
