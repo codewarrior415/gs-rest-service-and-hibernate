@@ -36,7 +36,7 @@ public class GreetingController {
         //Account a = (Account) query.getSingleResult();
         
         Account a = new Account();
-        a.setName("test");
+        a.setName(name);
         
         entityManager.persist(a);
 
