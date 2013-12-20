@@ -27,13 +27,6 @@ public class GreetingController {
     @RequestMapping("/greeting")
     @ResponseBody
     public Greeting greeting(@RequestParam(value = "name", required = false, defaultValue = "World") String name) {
-
-        //Jedis jedis = new Jedis("localhost");
-        //String value = jedis.get("foo");
-        
-        
-        //Query query = entityManager.createQuery("from Account a where a.id=:id").setParameter("id", 1L);
-        //Account a = (Account) query.getSingleResult();
         
         Account a = new Account();
         a.setName(name);
