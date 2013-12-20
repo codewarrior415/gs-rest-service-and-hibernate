@@ -27,7 +27,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         
         
         http.authorizeRequests()                                                                
-            //.antMatchers("/greeting/**", "/signup", "/about").permitAll()           
+            .antMatchers("/greeting/**", "/signup", "/about").hasRole("ADMIN")           
             .antMatchers("/admin/**").hasRole("ADMIN")                                      
             .antMatchers("/db/**").access("hasRole('ROLE_ADMIN') and hasRole('ROLE_DBA')")  
             .anyRequest().authenticated()                                                   
@@ -42,6 +42,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery("select username,password, enabled from users where username=?")
-                .authoritiesByUsernameQuery("select u.username, ur.authority from users u, user_roles ur where u.user_id = ur.user_id and u.username =? ");
+                .authoritiesByUsernameQuery("select u.username, ur.authority from users u, user_roles ur where u.user_id = ur.user_id and u.username =?");
     }
 }

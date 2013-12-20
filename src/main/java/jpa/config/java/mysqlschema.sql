@@ -29,8 +29,17 @@ CREATE TABLE `user_roles` (
   CONSTRAINT `FK_user_roles` FOREIGN KEY (`USER_ID`) REFERENCES `users` (`USER_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+-- INSET the administrator
 INSERT INTO users (USER_ID, USERNAME,PASSWORD, ENABLED)
-VALUES (1, 'siteadmin', 'somehash', TRUE);
+VALUES (1, 'siteadmin', '1234', TRUE);
  
 INSERT INTO user_roles (USER_ROLE_ID, USER_ID,AUTHORITY)
-VALUES (1, 1, 'ROLE_USER');
+VALUES (1, 1, 'ROLE_ADMIN');
+
+-- INSERT a regular user
+INSERT INTO users (USER_ID, USERNAME,PASSWORD, ENABLED)
+VALUES (2, 'user1', '1234', TRUE);
+ 
+INSERT INTO user_roles (USER_ROLE_ID, USER_ID,AUTHORITY)
+VALUES (2, 2, 'ROLE_USER');

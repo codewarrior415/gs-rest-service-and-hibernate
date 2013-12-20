@@ -26,7 +26,6 @@ public class JpaConfig {
 
 	@Bean
 	public EntityManagerFactory entityManagerFactory() {
-
 		LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactory.setDataSource(datasource());
 		entityManagerFactory.setPackagesToScan(new String[] { "jpa.config.java", "corp.entities" });
@@ -62,7 +61,7 @@ public class JpaConfig {
 		dsi.setDataSource(datasource());
 		
 		ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
-		databasePopulator.addScript(new ClassPathResource("jpa/config/java/schema.sql"));
+		databasePopulator.addScript(new ClassPathResource("jpa/config/java/mysqlschema.sql"));
 
 		dsi.setDatabasePopulator(databasePopulator);
 		
