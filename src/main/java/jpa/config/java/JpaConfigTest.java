@@ -1,6 +1,7 @@
 package jpa.config.java;
 
 
+import corp.entities.Account;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;

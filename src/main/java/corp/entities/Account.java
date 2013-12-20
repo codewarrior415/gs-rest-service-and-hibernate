@@ -1,4 +1,4 @@
-package hibernate.config.xml;
+package corp.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -6,10 +6,13 @@ import javax.persistence.Table;
 
 @Entity @Table(name="T_ACCOUNT")
 public class Account {
+	
 	@Id
 	private long id;
+	
 	private double cashBalance;
 	private String name;
+	
 	public long getId() {
 		return id;
 	}

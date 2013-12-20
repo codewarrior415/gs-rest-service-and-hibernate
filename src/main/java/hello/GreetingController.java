@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import jpa.config.java.Account;
+import corp.entities.Account;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;

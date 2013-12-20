@@ -10,7 +10,7 @@
     <name>hibernate-jpa-config-samples</name>
     
     <properties>
-        <start-class>hello.Application</start-class>
+        <start-class>hello.Applications</start-class>
         <maven.test.failure.ignore>true</maven.test.failure.ignore>
         <spring.framework.version>3.2.0.RELEASE</spring.framework.version>
         <hibernate.version>4.1.9.Final</hibernate.version>
@@ -35,14 +35,6 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
-        <dependency>
-            <groupId>redis.clients</groupId>
-            <artifactId>jedis</artifactId>
-            <version>2.2.1</version>
-            <type>jar</type>
-            <scope>compile</scope>
-        </dependency>
-
         <!-- ********************************************************************** 
         ** 				SPRING DEPENDENCIES 							 ** 
         ********************************************************************** -->
@@ -68,6 +60,19 @@
             <version>${hibernate.version}</version>
         </dependency>
 
+        <!-- ********************************************************************** 
+        ** 				Sping Security 							 ** 
+        ********************************************************************** -->
+            <dependency>
+              <groupId>org.springframework.security</groupId>
+              <artifactId>spring-security-web</artifactId>
+              <version>3.2.0.RELEASE</version>
+            </dependency>
+            <dependency>
+              <groupId>org.springframework.security</groupId>
+              <artifactId>spring-security-config</artifactId>
+              <version>3.2.0.RELEASE</version>
+            </dependency>
 
 
         <!-- ********************************************************************** 

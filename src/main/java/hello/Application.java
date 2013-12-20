@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-@ComponentScan(basePackages={"hello", "jpa.config.java"})
+@ComponentScan({"hello", "jpa.config.java", "security.config.java"})
 @EnableAutoConfiguration(exclude=HibernateJpaAutoConfiguration.class)
 public class Application {
 
