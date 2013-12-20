@@ -36,5 +36,19 @@ public class GreetingController {
         return new Greeting(counter.incrementAndGet(),
                 String.format(template, name));
     }
+    
+    @Transactional
+    @RequestMapping("/api")
+    @ResponseBody
+    public Greeting api(@RequestParam(value = "name", required = false, defaultValue = "World") String name) {
+        
+        Account a = new Account();
+        a.setName(name);
+        
+        entityManager.persist(a);
+
+        return new Greeting(counter.incrementAndGet(),
+                String.format(template, name));
+    }
 
 }
