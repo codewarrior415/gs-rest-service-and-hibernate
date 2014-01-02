@@ -24,7 +24,7 @@ public class JpaConfig {
 	public EntityManagerFactory entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactory.setDataSource(datasource());
-		entityManagerFactory.setPackagesToScan(new String[] { "jpa.config.java", "corp.entities" });
+		entityManagerFactory.setPackagesToScan(new String[] { "jpa.config.java", "corp.entities"});
 		entityManagerFactory.setPersistenceProvider(new HibernatePersistence());
 		entityManagerFactory.afterPropertiesSet();
 		return entityManagerFactory.getObject();
