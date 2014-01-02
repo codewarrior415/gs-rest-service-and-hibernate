@@ -10,6 +10,11 @@ import org.springframework.context.annotation.ComponentScan;
 public class Application {
 
     public static void main(String[] args) {
+        /* How to encrypt the password
+        String password = "plaintextPassword";
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hashedPassword = passwordEncoder.encode(password);
+        */
         SpringApplication.run(Application.class, args);
     }
 }
