@@ -22,10 +22,9 @@ public class JpaConfig {
 
 	@Bean
 	public EntityManagerFactory entityManagerFactory() {
-
 		LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactory.setDataSource(datasource());
-		entityManagerFactory.setPackagesToScan(new String[] { "jpa.config.java" });
+		entityManagerFactory.setPackagesToScan(new String[] { "jpa.config.java", "corp.entities"});
 		entityManagerFactory.setPersistenceProvider(new HibernatePersistence());
 		entityManagerFactory.afterPropertiesSet();
 		return entityManagerFactory.getObject();
@@ -58,10 +57,13 @@ public class JpaConfig {
 		dsi.setDataSource(datasource());
 		
 		ResourceDatabasePopulator databasePopulator = new ResourceDatabasePopulator();
-		databasePopulator.addScript(new ClassPathResource("jpa/config/java/schema.sql"));
+		databasePopulator.addScript(new ClassPathResource("jpa/config/java/mysqlschema.sql"));
 
 		dsi.setDatabasePopulator(databasePopulator);
 		
 		return dsi;
 	}
+        
+        
+        
 }
