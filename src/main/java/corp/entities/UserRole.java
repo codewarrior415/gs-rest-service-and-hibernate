@@ -9,6 +9,8 @@ package corp.entities;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,6 +23,7 @@ import javax.persistence.Table;
 @Table(name = "USER_ROLES")
 public class UserRole {
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long user_Role_Id;
 
     public Long getUser_Role_Id() {
