@@ -61,7 +61,7 @@
         </dependency>
 
         <!-- ********************************************************************** 
-        ** 				Sping Security 							 ** 
+        ** 				Spring Security 							 ** 
         ********************************************************************** -->
             <dependency>
               <groupId>org.springframework.security</groupId>

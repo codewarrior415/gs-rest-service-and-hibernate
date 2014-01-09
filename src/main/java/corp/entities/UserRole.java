@@ -21,20 +21,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "USER_ROLES")
-public class UserRole {
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long user_Role_Id;
+public class UserRole extends AbstractEntity{
+  
 
-    public Long getUser_Role_Id() {
-        return user_Role_Id;
-    }
-
-    public void setUser_Role_Id(Long user_Role_Id) {
-        this.user_Role_Id = user_Role_Id;
-    }
-    
-    
     @OneToMany(fetch=FetchType.LAZY)
     private List<User> user;
 

@@ -40,13 +40,12 @@ public class GreetingController {
         UserRole ur = new UserRole();
         ur.setAuthority("TEST");
         ur.setUser(null);
-        ur.setUser_Role_Id(3L);
+       
         
         User u = new User();
         u.setUserName("test");
         u.setPassword("name");
         u.setEnabled(true);
-        u.setUser_Id(3);
         
         entityManager.persist(u);
         

@@ -5,11 +5,10 @@
  */
 package corp.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Table;
+
 
 /**
  *
@@ -17,12 +16,12 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "USERS")
-public class User {
+public class User extends AbstractEntity{
 
-    @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private long user_id;
+
+    
     private String userName;
+    @Column(unique = true) 
     private String password;
     private Boolean enabled;
 
@@ -50,12 +49,5 @@ public class User {
         return enabled;
     }
 
-    public long getUser_Id() {
-        return user_id;
-    }
-
-    public void setUser_Id(long id) {
-        user_id = id;
-    }
 
 }

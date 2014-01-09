@@ -7,21 +7,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity @Table(name="T_ACCOUNT")
-public class Account {
-	
-	@Id
-        @GeneratedValue(strategy=GenerationType.AUTO)
-	private long id;
-	
+public class Account extends AbstractEntity{
+
 	private double cashBalance;
 	private String name;
-	
-	public long getId() {
-		return id;
-	}
-	public void setId(long id) {
-		this.id = id;
-	}
+
 	public double getCashBalance() {
 		return cashBalance;
 	}
@@ -37,7 +27,7 @@ public class Account {
 	
 	@Override
 	public String toString() {
-		return  "id: " + id + ", balance: " + cashBalance + ", name: " + name;
+		return  "id: " + this.getId() + ", balance: " + cashBalance + ", name: " + name;
 		
 	}
 	
